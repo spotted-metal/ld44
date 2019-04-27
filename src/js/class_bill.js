@@ -15,7 +15,7 @@ class Bill {
 
     /** @returns A formatted string describing the bill. */
     toString() {
-        return `${this.country} ${this.currencyUnit}${this.value} bill (${this.isReal ? 'real' : 'fake'})`;
+        return `${this.country} ${this.currencyUnit}${this.value} bill`;
     }
 }
 
