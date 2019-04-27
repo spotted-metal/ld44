@@ -1,5 +1,5 @@
-import BillFactory from './class_bill-factory.js';
-import BillChecker from './class_bill-checker.js';
+import BillFactory from './bills/class_bill-factory.js';
+import BillChecker from './bills/class_bill-checker.js';
 
 class RealOrFake {
     constructor(user) {
