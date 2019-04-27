@@ -1,13 +1,19 @@
-import StoreItem from './class_store-item.js';
+import User from './class_user.js';
 import BillFactory from './bills/class_bill-factory.js';
+import StoreItem from './class_store-item.js';
 
 
 const NUMBER_OF_LISTINGS = 10; 
 class Store {
 
+    /**
+     * Constructor for a store to buy antique bills.
+     * @param {User} user Current user.
+     */
     constructor(user) {
         this.user = user;
         this.factory = new BillFactory();
+        /** @type {StoreItem[]} */
         this.listing = [];
     }
 
@@ -20,6 +26,9 @@ class Store {
         return new StoreItem(bill);
     }
 
+    /**
+     * Populate the listing with a whole bunch of store items.
+     */
     createNewListing() {
         if (this.listing.length == 0) {
             for (let i = 0; i < NUMBER_OF_LISTINGS; i++) {
@@ -28,14 +37,16 @@ class Store {
         }
     }
 
+    /**
+     * Clear out the listing to prepare for a new listing.
+     */
     clearListing() {
         this.listing = [];
     }
 
     purchase(index) {
-        let {amount, sale} = this.listing[index].purchase(0); // TODO: pass in user's wallet
-        if (sale)
-            // TODO: subtract user's wallet
+        let purhcaseSuccessful = this.listing[index].purchase(this.user);
+        if (purhcaseSuccessful) {
             // replace with a new store item
             this.listing[index] = this.createNewStoreItem();
         }

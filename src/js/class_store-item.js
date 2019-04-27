@@ -1,4 +1,5 @@
 import Bill from './bills/class_bill.js';
+import User from './class_user.js';
 
 class StoreItem {
     /**
@@ -16,21 +17,19 @@ class StoreItem {
         this.price = price;
     }
 
-    purchase(amount) {
-        if (this.price <= amount) {  // TODO: if user has enough money to buy
+    /**
+     * Purchase a bill.
+     * @param {User} user The purchasing user.
+     */
+    purchase(user) {
+        if (this.price <= user.wallet) {
             // TODO: add to the user's collection
-            // TODO: subtract the cost from the user's wallet
+            user.subtractWallet(this.price);
             console.log(`Purchased ${this.bill.toString()}.`);
-            return {
-                amount: amount - this.price,
-                sale: true,
-            };
+            return true;
         } else {
             console.log("Can't afford");
-            return {
-                amount: amount,
-                sale: false,
-            };
+            return false;
         }
     }
 }
