@@ -2,6 +2,8 @@ import User from './class_user.js';
 import BillFactory from './bills/class_bill-factory.js';
 import BillChecker from './bills/class_bill-checker.js';
 
+import {user_view} from './main.js';
+
 class RealOrFake {
 
     /**
@@ -30,7 +32,8 @@ class RealOrFake {
         let result = this.checker.checkBill(this.currentBill, opinion);
         if (result) {
             console.log("Correct!");
-            this.user.addWallet(Math.floor(Math.random() * 10 + 1));
+            this.user.addWallet(Math.floor(Math.random() * 11 + 5));
+            user_view.update();
         } else {
             console.log("Aww, try again.");
         }

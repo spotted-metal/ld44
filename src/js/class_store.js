@@ -44,12 +44,21 @@ class Store {
         this.listing = [];
     }
 
+    /**
+     * Make a purchase.
+     * @param {number} index Array index of the store item being purchased.
+     * @returns {boolean} Whether the purchase succeeded.
+     */
     purchase(index) {
-        let purhcaseSuccessful = this.listing[index].purchase(this.user);
-        if (purhcaseSuccessful) {
+        console.log(`index = ${index}`);
+        let purchaseSuccessful = this.listing[index].purchase(this.user);
+        if (purchaseSuccessful) {
             // replace with a new store item
             this.listing[index] = this.createNewStoreItem();
         }
+        console.log(this.listing);
+
+        return purchaseSuccessful;
     }
 }
 

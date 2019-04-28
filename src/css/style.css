@@ -3,3 +3,7 @@ div.info {
     border: 1px solid black;
     background: #eee;
 }
+
+div {
+    border: 1px solid red;
+}
