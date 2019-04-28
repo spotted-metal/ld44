@@ -19,10 +19,10 @@ class RealOrFake {
     getNewBill() {
         if (!this.currentBill) {
             this.currentBill = this.factory.createRandomBill();
-            console.log(`This is a ${this.currentBill.toString()}.`);
+            console.log(`This is a ${this.currentBill.toString()} (${this.currentBill.isReal ? "real" : "fake"}).`);
         } else {
             console.log("Please check your current bill first.");
-            console.log(`It is a ${this.currentBill.toString()}.`);
+            console.log(`It is a ${this.currentBill.toString()} (${this.currentBill.isReal ? "real" : "fake"}).`);
         }
     }
 
