@@ -6,8 +6,8 @@ const CURRENCIES = [
         currency_values: [1, 5, 10, 50, 100],
     },
     {
-        country_noun: "Kiloweyo",
-        country_adj: "Kiloweyese",
+        country_noun: "Kilaweyo",
+        country_adj: "Kilaweyese",
         currency_unit: "K",
         currency_values: [1000, 5000, 10000, 50000],
     },
