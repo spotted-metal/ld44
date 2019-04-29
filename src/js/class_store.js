@@ -3,7 +3,7 @@ import BillFactory from './bills/class_bill-factory.js';
 import StoreItem from './class_store-item.js';
 
 
-const NUMBER_OF_LISTINGS = 10; 
+const NUMBER_OF_LISTINGS = 7; 
 class Store {
 
     /**
