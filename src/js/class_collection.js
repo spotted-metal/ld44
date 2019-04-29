@@ -13,8 +13,14 @@ class Collection {
 
             this.currencies.push(entry);
         }
+    }
 
-        console.log(this.currencies);
+    add(country, value) {
+        this.currencies
+            .find((c) => c.country === country)
+            .notes
+                .find((v) => v.value === value)
+                .have = true;
     }
 }
 

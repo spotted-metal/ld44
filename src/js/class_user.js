@@ -1,4 +1,5 @@
 import Collection from './class_collection.js';
+import Bill from './bills/class_bill.js';
 
 class User {
     constructor(wallet = 100) {
@@ -12,6 +13,14 @@ class User {
 
     subtractWallet(amount) {
         this.wallet -= amount;
+    }
+
+    /**
+     * Add a purchased bill to the player's collection.
+     * @param {Bill} bill The bill to add to collection.
+     */
+    addToCollection(bill) {
+        this.collection.add(bill.country_noun, bill.value);
     }
 }
 
