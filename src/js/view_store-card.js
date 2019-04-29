@@ -23,7 +23,8 @@ class StoreCard {
         this.button.textContent = "Buy";
         this.button.addEventListener("click", () => {
             if (this.model.purchase(this.index))
-                user_view.update();
+                user_view.updateWallet();
+                user_view.updateCollection();
         });
 
         this.update();

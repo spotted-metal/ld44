@@ -25,6 +25,7 @@ class StoreItem {
         if (this.price <= user.wallet) {
             // TODO: add to the user's collection
             user.subtractWallet(this.price);
+            user.addToCollection(this.bill);
             console.log(`Purchased ${this.bill.toString()}.`);
             return true;
         } else {

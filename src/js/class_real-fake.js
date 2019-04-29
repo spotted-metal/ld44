@@ -33,7 +33,7 @@ class RealOrFake {
         if (result) {
             console.log("Correct!");
             this.user.addWallet(Math.floor(Math.random() * 11 + 5));
-            user_view.update();
+            user_view.updateWallet();
         } else {
             console.log("Aww, try again.");
         }

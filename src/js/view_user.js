@@ -15,17 +15,52 @@ class View_User {
         this.div = document.createElement("div");
         this.wallet = document.createElement("span");
 
-        this.update();
+        this.updateWallet();
 
-        this.div.appendChild(this.wallet);
+        let collection = document.createElement("div");
+
+        for (let currency of this.user.collection.currencies) {
+            let country = document.createElement("span");
+            country.textContent = currency.country;
+
+            collection.appendChild(country);
+
+            for (let note of currency.notes) {
+                let entry = document.createElement("span");
+                entry.id = `${currency.country}_${note.value}`;
+                entry.className = "do-not-have";
+                entry.textContent = `${currency.unit}${note.value}`;
+
+                collection.appendChild(entry);
+            }
+
+            collection.appendChild(document.createElement("br"));
+        }
+
+
+        this.div.append(
+            "You have $", this.wallet, document.createElement("br"),
+            "Your collection:", document.createElement("br"),
+            collection
+        );
+
         container.appendChild(this.div);
     }
 
-    update() {
-        this.wallet.textContent = `You have $${this.user.wallet}`;
+    updateWallet() {
+        this.wallet.textContent = this.user.wallet;
 
         if (this.store_view) {
             this.store_view.updateCards();
+        }
+    }
+
+    updateCollection() {
+        for (let currency of this.user.collection.currencies) {
+            for (let note of currency.notes) {
+                let entry = document.getElementById(`${currency.country}_${note.value}`);
+                entry.className = note.have ? "have" : "do-not-have";
+            }
         }
     }
 }
