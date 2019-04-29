@@ -5,7 +5,6 @@ class StoreItem {
     /**
      * Store entry for antique bill.
      * @param {Bill} bill Bill that is to be sold.
-     * @param {number} price Asking price for the bill.
      */constructor(bill) {
         this.bill = bill;
         this.setPrice();

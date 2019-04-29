@@ -14,8 +14,10 @@ class StoreCard {
         this.index = index;
 
         this.div = document.createElement("div");
+        this.div.className = "store-item";
 
         this.billImage = document.createElement("img");
+
         this.description = document.createElement("span");
         this.price = document.createElement("span");
 
@@ -29,7 +31,8 @@ class StoreCard {
 
         this.update();
 
-        this.div.append(this.billImage, document.createElement("br"),
+        this.div.append(
+            this.billImage, document.createElement("br"),
             this.description, document.createElement("br"),
             this.price, document.createElement("br"),
             this.button);
@@ -42,7 +45,7 @@ class StoreCard {
      */
     update() {
         let item = this.model.listing[this.index];
-        this.description.textContent = item.bill.toString();
+        this.description.textContent = `${item.bill.toString()}${ item.price >= 200 ? " (mint condition)" : "" }`;
         this.price.textContent = `Price: $${item.price}`;
         this.billImage.src = item.bill.getImgUrl();
 

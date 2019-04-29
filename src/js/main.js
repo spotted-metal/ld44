@@ -17,17 +17,24 @@ let user_div = document.createElement("div");
 let store_div = document.createElement("div");
 let rf_div = document.createElement("div");
 
+store_div.className = "store-div";
+
 rf_div.style.display = "none";
 rf_div.className = "rf-div";
 
 store_link.onclick = () => {
     store_div.style.display = "block";
     rf_div.style.display = "none";
+    store_view.model.createNewListing();
+    store_view.init();
 };
 
 rf_link.onclick = () => {
     store_div.style.display = "none";
     rf_div.style.display = "block";
+    store_view.model.clearListing();
+    store_view.listing = [];
+    store_view.container.innerHTML = "";
 };
 
 document.body.append(
