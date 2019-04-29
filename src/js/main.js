@@ -17,4 +17,6 @@ let user_view = new UserView(user_div, user);
 let rof_view = new RealOrFake(rf_div, user);
 let store_view = new Store(store_div, user);
 
+user_view.store_view = store_view;
+
 export {user_view};

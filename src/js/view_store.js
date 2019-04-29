@@ -27,6 +27,15 @@ class View_Store {
             this.listing[i] = new StoreCard(this.container, this.model, i);
         }
     }
+
+    /**
+     * Update the buttons on the store.
+     */
+    updateCards() {
+        for (const card of this.listing) {
+            card.update();
+        }
+    }
 }
 
 export {View_Store as default};

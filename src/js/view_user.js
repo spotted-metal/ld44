@@ -1,4 +1,5 @@
 import User from './class_user.js';
+import Store from './view_store.js';
 
 class View_User {
     /**
@@ -8,6 +9,8 @@ class View_User {
      */
     constructor(container, user) {
         this.user = user;
+        /** @type {Store} */
+        this.store_view = null;
 
         this.div = document.createElement("div");
         this.wallet = document.createElement("span");
@@ -20,6 +23,10 @@ class View_User {
 
     update() {
         this.wallet.textContent = `You have $${this.user.wallet}`;
+
+        if (this.store_view) {
+            this.store_view.updateCards();
+        }
     }
 }
 

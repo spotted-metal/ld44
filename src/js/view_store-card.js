@@ -11,6 +11,7 @@ class StoreCard {
      */
     constructor(container, store, index) {
         this.model = store;
+        this.index = index;
 
         this.div = document.createElement("div");
 
@@ -18,16 +19,14 @@ class StoreCard {
         this.description = document.createElement("span");
         this.price = document.createElement("span");
 
-        this.update(index);
-
         this.button = document.createElement("button");
         this.button.textContent = "Buy";
         this.button.addEventListener("click", () => {
-            if (this.model.purchase(index)) {
-                this.update(index);
+            if (this.model.purchase(this.index))
                 user_view.update();
-            }
         });
+
+        this.update();
 
         this.div.append(this.billImage, document.createElement("br"),
             this.description, document.createElement("br"),
@@ -39,12 +38,18 @@ class StoreCard {
 
     /**
      * Update the card's description to match the new store item.
-     * @param {number} index Index from which the information will be pulled.
      */
-    update(index) {
-        this.description.textContent = this.model.listing[index].bill.toString();
-        this.price.textContent = `Price: $${this.model.listing[index].price}`;
-        this.billImage.src = this.model.listing[index].bill.getImgUrl();
+    update() {
+        let item = this.model.listing[this.index];
+        this.description.textContent = item.bill.toString();
+        this.price.textContent = `Price: $${item.price}`;
+        this.billImage.src = item.bill.getImgUrl();
+
+        if (user_view.user.wallet >= item.price) {
+            this.button.disabled = false;
+        } else {
+            this.button.disabled = true;
+        }
     }
 }
 
