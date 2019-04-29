@@ -16,6 +16,7 @@ class View_RealOrFake {
 
     init() {
         this.view = document.createElement("div");
+        this.view.style.fontSize = "18pt";
 
         this.description = document.createElement("span");
         this.billImage = document.createElement("img");

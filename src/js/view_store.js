@@ -11,20 +11,21 @@ class View_Store {
     constructor(container, user) {
         this.container = container;
         this.model = new Store(user);
+        this.div = document.createElement("div");
+
+        /** @type {StoreCard[]} */
+        this.listing = [];
 
         this.model.createNewListing();
 
         this.init();
 
-        console.log(this.model.listing);
+        this.container.appendChild(this.div);
     }
 
     init() {
-        /** @type {StoreCard[]} */
-        this.listing = [];
-
         for (let i = 0; i < this.model.listing.length; i++) {
-            this.listing[i] = new StoreCard(this.container, this.model, i);
+            this.listing[i] = new StoreCard(this.div, this.model, i);
         }
     }
 
@@ -35,6 +36,11 @@ class View_Store {
         for (const card of this.listing) {
             card.update();
         }
+    }
+
+    clear() {
+        this.listing = [];
+        this.div.innerHTML = "";
     }
 }
 

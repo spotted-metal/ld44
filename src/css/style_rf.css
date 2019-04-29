@@ -1,8 +1,11 @@
 div.rf-div {
     text-align: center;
-    font-size: 18pt;
     line-height: 1.5em;
     max-width: 800px;
+    margin: auto;
+    box-shadow: 0 0 5px silver;
+    padding: 1em;
+    box-sizing: border-box;
 }
 
 .rf-div img {

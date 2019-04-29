@@ -13,15 +13,18 @@ class View_User {
         this.store_view = null;
 
         this.div = document.createElement("div");
+        this.div.id = "user";
         this.wallet = document.createElement("span");
 
         this.updateWallet();
 
         let collection = document.createElement("div");
+        collection.id = "collection";
 
         for (let currency of this.user.collection.currencies) {
             let country = document.createElement("span");
             country.textContent = currency.country;
+            country.className = "header";
 
             collection.appendChild(country);
 
