@@ -14,6 +14,7 @@ class StoreCard {
 
         this.div = document.createElement("div");
 
+        this.billImage = document.createElement("img");
         this.description = document.createElement("span");
         this.price = document.createElement("span");
 
@@ -28,7 +29,8 @@ class StoreCard {
             }
         });
 
-        this.div.append(this.description, document.createElement("br"),
+        this.div.append(this.billImage, document.createElement("br"),
+            this.description, document.createElement("br"),
             this.price, document.createElement("br"),
             this.button);
 
@@ -42,6 +44,7 @@ class StoreCard {
     update(index) {
         this.description.textContent = this.model.listing[index].bill.toString();
         this.price.textContent = `Price: $${this.model.listing[index].price}`;
+        this.billImage.src = this.model.listing[index].bill.getImgUrl();
     }
 }
 
