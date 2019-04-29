@@ -24,6 +24,7 @@ class View_RealOrFake {
 
         let realButton = document.createElement("button");
         realButton.innerText = "Real";
+        realButton.className = "real";
         realButton.addEventListener("click", () => {
             this.model.checkBill(true);
             this.update();
@@ -31,6 +32,7 @@ class View_RealOrFake {
 
         let fakeButton = document.createElement("button");
         fakeButton.innerText = "Fake";
+        fakeButton.className = "fake";
         fakeButton.addEventListener("click", () => {
             this.model.checkBill(false);
             this.update();
