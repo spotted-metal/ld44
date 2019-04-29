@@ -16,16 +16,20 @@ class View_RealOrFake {
 
     init() {
         this.currentBillImg = document.createElement("img");
+        this.currentBillImg.style.width = "100%";
+        this.currentBillImg.style.maxWidth = "1200px";
+
         this.currentBill = document.createElement("div");
-        this.currentBill.innerText = this.model.currentBill.toString();
-        this.currentBill.appendChild(this.currentBillImg);
+        
         this.container.appendChild(this.currentBill);
+
+        this.update();
 
         let realButton = document.createElement("button");
         realButton.innerText = "Real";
         realButton.addEventListener("click", () => {
             this.model.checkBill(true);
-            this.currentBill.innerText = this.model.currentBill.toString();
+            this.update();
         });
         this.container.appendChild(realButton);
 
@@ -33,9 +37,15 @@ class View_RealOrFake {
         fakeButton.innerText = "Fake";
         fakeButton.addEventListener("click", () => {
             this.model.checkBill(false);
-            this.currentBill.innerText = this.model.currentBill.toString();
+            this.update();
         });
         this.container.appendChild(fakeButton);
+    }
+
+    update() {
+        this.currentBill.textContent = this.model.currentBill.toString();
+        this.currentBillImg.src = this.model.currentBill.getImgUrl();
+        this.currentBill.appendChild(this.currentBillImg);
     }
 }
 

@@ -16,7 +16,7 @@ class BillFactory {
         let randomValue = randomCurrency.currency_values[
             Math.floor(Math.random() * randomCurrency.currency_values.length)
         ];
-        return new Bill(randomCurrency.country_adj, randomCurrency.currency_unit, randomValue, isReal);
+        return new Bill(randomCurrency.country_noun, randomCurrency.country_adj, randomCurrency.currency_unit, randomValue, isReal);
     }
 
     /**

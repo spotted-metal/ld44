@@ -6,8 +6,9 @@ class Bill {
      * @param {number} value The nominal value of the bill.
      * @param {boolean} isReal Whether the bill is real or not.
      */
-    constructor(country, currencyUnit, value, isReal) {
-        this.country = country;
+    constructor(country_noun, country_adj, currencyUnit, value, isReal) {
+        this.country_noun = country_noun;
+        this.country_adj = country_adj;
         this.currencyUnit = currencyUnit;
         this.value = value;
         this.isReal = isReal;
@@ -15,7 +16,11 @@ class Bill {
 
     /** @returns A formatted string describing the bill. */
     toString() {
-        return `${this.country} ${this.currencyUnit}${this.value} bill`;
+        return `${this.country_adj} ${this.currencyUnit}${this.value} bill` + ", url: " + this.getImgUrl();
+    }
+
+    getImgUrl() {
+        return `images/bills_${this.country_noun.toLowerCase()}/${this.value}_${this.isReal ? "r" : "f"}.png`;
     }
 }
 
