@@ -16,7 +16,7 @@ class Bill {
 
     /** @returns A formatted string describing the bill. */
     toString() {
-        return `${this.country_adj} ${this.currencyUnit}${this.value} bill` + ", url: " + this.getImgUrl();
+        return `${this.country_adj} ${this.currencyUnit}${this.value} bill`;
     }
 
     getImgUrl() {
