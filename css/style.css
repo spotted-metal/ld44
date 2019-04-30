@@ -1,0 +1,64 @@
+div.info {
+    padding: 1em;
+    border: 1px solid black;
+    background: #eee;
+}
+
+body {
+    background: lightgreen;
+}
+
+div {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+}
+
+* {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    width: 50%;
+    max-width: 400px;
+    background: silver;
+    border-radius: 0.5em 0.5em 0 0;
+    height: 2em;
+    color: black;
+    line-height: 2em;
+}
+
+a.selected {
+    color: white;
+    background: green;
+}
+
+#user {
+    text-align: left;
+}
+
+#collection {
+    text-align: inherit;
+}
+
+#collection span.header {
+    text-align: left;
+    background: grey;
+    color: white;
+    width: 5em;
+    display: inline-block;
+}
+
+#collection span.do-not-have {
+    margin: 0 1em 0 1em;
+    color: grey;
+}
+
+#collection span.have {
+    margin: 0 1em 0 1em;
+    color: green;
+    font-weight: bold;
+}
